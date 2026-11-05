@@ -146,6 +146,17 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
 
 @media (max-width:760px){.hero-art{right:0;height:min(52svh,92vw)}}
 
+/* loading screen */
+.loader{display:none}
+.js .loader{position:fixed;inset:0;z-index:100;background:var(--hair);color:#fff;display:grid;place-content:center;justify-items:center;gap:1.6rem;
+  transition:opacity .7s cubic-bezier(.7,0,.2,1),visibility 0s .7s}
+.loader .lt{font-family:var(--display);font-size:clamp(4rem,14vw,9rem);line-height:.9;letter-spacing:-.02em}
+.loader .bar{display:block;width:min(14rem,50vw);height:3px;background:rgba(255,255,255,.28);overflow:hidden}
+.loader .bar i{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .35s ease-out}
+.js.ready .loader{opacity:0;visibility:hidden;pointer-events:none}
+html.js:not(.ready){overflow:hidden}
+.js:not(.ready) .hero::after,.js:not(.ready) .hero-art{animation-play-state:paused}
+
 /* back to top */
 .totop{position:fixed;right:max(1.2rem,env(safe-area-inset-right));bottom:max(1.2rem,env(safe-area-inset-bottom));z-index:20;
   width:3.1rem;height:3.1rem;border:2px solid #fff;border-radius:50%;background:var(--wine);color:#fff;cursor:pointer;display:grid;place-items:center;
@@ -156,13 +167,18 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
 .totop svg{width:1.4rem;height:1.4rem;transition:transform .25s}
 .totop:hover svg{transform:translateY(-3px)}
 @media (prefers-reduced-motion:reduce){
-  .hero::after,.hero-art{animation:none}html{scroll-behavior:auto}
+  .hero::after,.hero-art{animation:none}html{scroll-behavior:auto}.loader,.loader .bar i{transition:none}
   .js .rv,.js .wi,.js .art .rev,.js .art .rev>*,.totop{transition:none;opacity:1;transform:none;clip-path:none}
   .totop:not(.show){opacity:0}
 }
 </style>
 </head>
 <body>
+
+<div class="loader" role="status" aria-live="polite" aria-label="Loading">
+  <span class="lt">Eris</span>
+  <span class="bar"><i></i></span>
+</div>
 
 <header class="hero" id="top">
   <nav aria-label="Sections">
@@ -175,7 +191,7 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
   </div>
   <div class="jp" lang="ja">エリス・ボレアス・グレイラット</div>
   <figure class="art hero-art" data-src="images/ErisMe.png" data-alt="Illustration of Eris Boreas Greyrat">
-    <div class="par"><div class="rev"><div class="ph"><span>Image Loading...<small>images/ErisMe.png</small></span></div><img alt="" hidden></div></div>
+    <div class="par"><div class="rev"><div class="ph"><span>Your Eris art<small>images/ErisMe.png</small></span></div><img alt="" hidden></div></div>
   </figure>
   <p class="ranks">Sword King. North Saint. A-rank adventurer.<br>A fanpage made with love by <a href="https://github.com/eldezaki" target="_blank" rel="noopener noreferrer">eldezaki</a></p>
 </header>
@@ -199,7 +215,7 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
     </dl>
   </div>
   <figure class="art" data-src="images/eris-profile.png" data-alt="Eris Boreas Greyrat portrait">
-    <div class="par"><div class="rev"><div class="ph"><span>Image Loading...<small>images/eris-profile.png</small></span></div><img alt="" hidden></div></div>
+    <div class="par"><div class="rev"><div class="ph"><span>Your Eris art<small>images/eris-profile.png</small></span></div><img alt="" hidden></div></div>
   </figure>
 </section>
 
@@ -220,7 +236,7 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
     <p class="note">“Boreas” is also the Greek name for the north wind. The series does not make anything of it, but it suits someone this cold-blooded in a fight and this hot-blooded everywhere else.</p>
   </div>
   <figure class="art deco" data-src="images/deco-house.png" data-alt="Decorative symbol">
-    <div class="par"><div class="rev"><div class="ph"><span>Image Loading...<small>images/deco-house.png</small></span></div><img alt="" hidden></div></div>
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/deco-house.png</small></span></div><img alt="" hidden></div></div>
   </figure>
 </section>
 
@@ -234,7 +250,7 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
     <p>Her growth is not about losing the fire. She learns to read, to count, to speak politely when it matters, and to listen. By the time she wears the Greyrat name alone, the temper is still there. It just has a direction.</p>
   </div>
   <figure class="art deco" data-src="images/deco-temper.png" data-alt="Decorative symbol">
-    <div class="par"><div class="rev"><div class="ph"><span>Image Loading...<small>images/deco-temper.png</small></span></div><img alt="" hidden></div></div>
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/deco-temper.png</small></span></div><img alt="" hidden></div></div>
   </figure>
 </section>
 
@@ -252,7 +268,7 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
     </ol>
   </div>
   <figure class="art" data-src="images/eris-story.png" data-alt="Eris Boreas Greyrat in motion">
-    <div class="par"><div class="rev"><div class="ph"><span>Image Loading...<small>images/eris-story.png</small></span></div><img alt="" hidden></div></div>
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/eris-story.png</small></span></div><img alt="" hidden></div></div>
   </figure>
 </section>
 
@@ -270,7 +286,7 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
     <p>She is not a patient duelist. Her fights are fast, forward and loud. The difference between early and later Eris is control: the same aggression, but with footwork and timing behind it. Magic was never her gift, and she compensates with the sword until the blade is enough on its own.</p>
   </div>
   <figure class="art" data-src="images/eris-blade.png" data-alt="Eris Boreas Greyrat with her sword">
-    <div class="par"><div class="rev"><div class="ph"><span>Image Loading...<small>images/eris-blade.png</small></span></div><img alt="" hidden></div></div>
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/eris-blade.png</small></span></div><img alt="" hidden></div></div>
   </figure>
 </section>
 
@@ -287,7 +303,7 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
     <p>The family she leaves behind and keeps coming back to. They are the reason she starts out the way she does, and the reason her choice of the Greyrat name carries weight.</p>
   </div>
   <figure class="art deco" data-src="images/deco-bonds.png" data-alt="Decorative symbol">
-    <div class="par"><div class="rev"><div class="ph"><span>Image Loading...<small>images/deco-bonds.png</small></span></div><img alt="" hidden></div></div>
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/deco-bonds.png</small></span></div><img alt="" hidden></div></div>
   </figure>
 </section>
 
@@ -304,7 +320,7 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
       <p>In the web novel she dies of old age at 74, after collapsing during a training session. The anime and manga have not reached that point.</p></details>
   </div>
   <figure class="art deco" data-src="images/deco-notes.png" data-alt="Decorative symbol">
-    <div class="par"><div class="rev"><div class="ph"><span>Image Loading...<small>images/deco-notes.png</small></span></div><img alt="" hidden></div></div>
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/deco-notes.png</small></span></div><img alt="" hidden></div></div>
   </figure>
 </section>
 
@@ -326,17 +342,34 @@ footer p{max-width:70ch}footer p+p{margin-top:.6rem}
   var d=document, reduce=matchMedia("(prefers-reduced-motion: reduce)").matches, hasIO="IntersectionObserver" in window;
 
   /* load your art if the file exists, otherwise keep the placeholder */
+  var jobs=[];
   d.querySelectorAll("[data-src]").forEach(function(f){
-    var t=new Image();
-    t.onload=function(){var i=f.querySelector("img");i.src=f.dataset.src;i.alt=f.dataset.alt||"";i.hidden=false;var p=f.querySelector(".ph");if(p)p.remove();};
-    t.src=f.dataset.src;
+    jobs.push(new Promise(function(done){
+      var t=new Image();
+      t.onload=function(){var i=f.querySelector("img");i.src=f.dataset.src;i.alt=f.dataset.alt||"";i.hidden=false;var p=f.querySelector(".ph");if(p)p.remove();done()};
+      t.onerror=done; /* missing file: keep the placeholder, don't block the page */
+      t.src=f.dataset.src;
+    }));
   });
 
   d.querySelectorAll(".band").forEach(function(b){
-    var t=new Image();
-    t.onload=function(){b.style.backgroundImage="url("+b.dataset.pattern+")";b.classList.remove("empty");var l=b.querySelector("span");if(l)l.remove();};
-    t.src=b.dataset.pattern;
+    jobs.push(new Promise(function(done){
+      var t=new Image();
+      t.onload=function(){b.style.backgroundImage="url("+b.dataset.pattern+")";b.classList.remove("empty");var l=b.querySelector("span");if(l)l.remove();done()};
+      t.onerror=done;
+      t.src=b.dataset.pattern;
+    }));
   });
+
+  /* loading screen: wait for every image and the fonts, then reveal the page */
+  var root=d.documentElement, bar=d.querySelector(".loader .bar i"), total=jobs.length+1, got=0, shown=false;
+  function step(){got++;if(bar)bar.style.transform="scaleX("+Math.min(got/total,1)+")"}
+  jobs=jobs.map(function(p){return p.then(step)});
+  jobs.push((window.document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).catch(function(){}).then(step));
+  function reveal(){if(shown)return;shown=true;root.classList.add("ready");var l=d.querySelector(".loader");if(l)l.setAttribute("aria-hidden","true")}
+  var minWait=new Promise(function(r){setTimeout(r,450)});
+  Promise.all(jobs.concat(minWait)).then(reveal);
+  setTimeout(reveal,10000); /* safety net on very slow connections */
 
   /* scroll reveals */
   var seen=new Set(), counts=new Map(), items=[];
