@@ -1,47 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Skibidi</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eris Boreas Greyrat | Mushoku Tensei fan archive</title>
+<meta name="description" content="A fan-made archive about Eris Boreas Greyrat from Mushoku Tensei: Jobless Reincarnation: her family, temper, story, swordsmanship and bonds.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%97%A1%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Public+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<style>
+:root{
+  --hair:#C21F2B; --blood:#7E1320; --wine:#2A0A10; --snow:#EDF0F2; --wind:#5F7F9A; --oak:#B48A5C; --ink:#241519;
+  --display:"Rozha One","Bodoni 72","Didot",Georgia,serif;
+  --body:"Public Sans","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--snow);line-height:1.65;font-size:1.0625rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--oak);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;background:var(--hair);color:#fff;overflow:hidden;display:flex;flex-direction:column}
+.hero::after{content:"";position:absolute;inset:0;background:var(--snow);
+  clip-path:polygon(68% 0,100% 0,100% 100%,50% 100%);animation:cut .9s .25s cubic-bezier(.7,0,.2,1) both}
+@keyframes cut{from{clip-path:polygon(100% 0,100% 0,100% 100%,100% 100%)}}
+nav{position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:.25rem 1.4rem;padding:1.4rem 6vw;font-size:.95rem}
+nav a{text-decoration:none;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-color:currentColor}
+.hero-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:2rem 6vw 5rem}
+h1{font-family:var(--display);font-weight:400;line-height:.82;letter-spacing:-.02em}
+h1 .first{display:block;font-size:clamp(6.5rem,19vw,17rem)}
+h1 .rest{display:block;font-size:clamp(2rem,5vw,4.6rem);margin-top:.6rem;padding-left:.4vw}
+.lede{max-width:27ch;margin-top:2rem;font-size:1.2rem;line-height:1.5}
+.jp{position:absolute;z-index:2;right:2.5vw;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;
+  font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(1rem,min(2vw,3.3svh),1.9rem);letter-spacing:.25em;white-space:nowrap;line-height:1;color:var(--blood)}
+.ranks{position:absolute;z-index:2;left:6vw;bottom:2.2rem;max-width:24rem;color:#fff;font-size:.95rem;line-height:1.45}
+@media (max-width:760px){
+  .hero::after{clip-path:polygon(0 80%,100% 70%,100% 100%,0 100%)}
+  @keyframes cut{from{clip-path:polygon(0 100%,100% 100%,100% 100%,0 100%)}}
+  nav{flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;gap:1.2rem;padding:1rem 6vw;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  nav a{flex:none}
+  .jp{display:block;top:5.2rem;right:5vw;transform:none;font-size:1.05rem;letter-spacing:.22em;color:#fff;opacity:.9}
+  .lede{font-size:1.05rem;max-width:22ch}
+  .ranks{max-width:52%;bottom:1.2rem;color:var(--wine);font-size:.88rem}
+  .hero-body{padding-bottom:7rem}
+}
+
+/* ---------- sections ---------- */
+.sec{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2.5rem 7vw;padding:6rem 6vw 7rem;align-items:center}
+.sec>h2{grid-column:1;grid-row:1;align-self:end;font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,6vw,5.6rem);line-height:1;letter-spacing:-.01em}
+.sec>div{grid-row:2;grid-column:1;align-self:start;max-width:none}
+.sec>div>p{max-width:62ch}
+.sec p+p{margin-top:1.05rem}
+h3{font-family:var(--display);font-weight:400;font-size:1.45rem;margin:2.2rem 0 .5rem;line-height:1.2}
+.sec>div>h3:first-child{margin-top:0}
+.dark{background:var(--wine);color:#F3E9E6}
+.red{background:var(--hair);color:#fff}
+.dark a,.red a{color:inherit}
+
+
+/* fact sheet */
+dl.facts{display:grid;grid-template-columns:max-content 1fr;border-top:3px solid var(--hair)}
+dl.facts dt,dl.facts dd{padding:.8rem 0;border-bottom:1px solid #c9ced3}
+dl.facts dt{font-weight:600;padding-right:2rem}
+@media (max-width:560px){dl.facts{grid-template-columns:1fr}dl.facts dt{border:0;padding-bottom:0}}
+
+/* family tree */
+.tree{display:grid;gap:0;justify-items:start;margin:1.6rem 0 2rem}
+.tree .row{display:flex;gap:1rem;flex-wrap:wrap}
+.node{border-left:4px solid var(--oak);padding:.5rem 1rem;background:rgba(255,255,255,.07)}
+.node.me{border-color:#fff;background:#fff;color:var(--blood)}
+.node small{display:block;opacity:.75;font-size:.85rem}
+.link{width:4px;height:1.4rem;background:var(--oak);margin-left:1.2rem}
+
+/* story */
+ol.story{list-style:none;padding:0;counter-reset:s;border-left:3px solid var(--hair);margin-left:.6rem}
+ol.story li{counter-increment:s;position:relative;padding:0 0 2.2rem 2rem}
+ol.story li::before{content:counter(s);position:absolute;left:-1.05rem;top:0;width:2rem;height:2rem;border-radius:50%;
+  background:var(--hair);color:#fff;font-family:var(--display);display:grid;place-items:center;font-size:1rem}
+ol.story strong{font-family:var(--display);font-weight:400;font-size:1.3rem;display:block;margin-bottom:.2rem}
+
+/* rank ladder */
+ol.ladder{list-style:none;padding:0;display:grid;gap:.35rem;margin:1.4rem 0 .6rem}
+ol.ladder li{width:calc(30% + var(--n)*10%);background:rgba(255,255,255,.1);padding:.45rem .9rem;border-left:4px solid var(--wind)}
+ol.ladder li.hit{background:#fff;color:var(--blood);border-color:var(--hair);font-weight:600}
+.cap{font-size:.92rem;opacity:.8}
+
+/* quote-like callout */
+.note{border-left:4px solid var(--oak);padding:.2rem 0 .2rem 1.1rem;margin-top:1.5rem}
+details{border-top:1px solid #c9ced3;padding:.9rem 0}
+details:last-of-type{border-bottom:1px solid #c9ced3}
+summary{cursor:pointer;font-weight:600}
+details[open] summary{margin-bottom:.5rem}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2rem}
+.media-grid h3{margin-top:0}
+.media-grid li{margin:.3rem 0 .3rem 1.1rem}
+
+footer{background:var(--ink);color:#d9cfcf;padding:3rem 6vw;font-size:.92rem}
+footer p{max-width:70ch}footer p+p{margin-top:.6rem}
+
+/* ---------- art + motion ---------- */
+.hero-art{position:absolute;z-index:2;right:7vw;bottom:0;height:min(94svh,58vw);aspect-ratio:9/10;animation:artin 1.1s .85s cubic-bezier(.2,.6,.2,1) both}
+@keyframes artin{from{opacity:0;transform:translateY(28px)}}
+.par,.rev{height:100%;will-change:transform}
+.art img,.art .ph{display:block;width:100%;height:100%;object-fit:contain;object-position:bottom}
+.art img[hidden]{display:none}
+.ph{display:grid;place-items:center;text-align:center;border:2px dashed currentColor;padding:1rem;font-weight:600;
+  background:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,currentColor 9%,transparent) 14px 15px)}
+.ph small{display:block;font-weight:400;font-size:.8rem;opacity:.8;margin-top:.25rem}
+.hero-art .ph{height:calc(100% - 2.5rem);color:var(--wine)}
+.sec>.art{grid-row:1/3;grid-column:2;width:100%;max-width:26rem;aspect-ratio:3/4;justify-self:center;align-self:center}
+.sec>.deco{aspect-ratio:1;max-width:19rem}
+.sec.flip{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+.sec.flip>h2{grid-column:2}
+.sec.flip>div{grid-column:2}
+.sec.flip>.art{grid-column:1}
+.sec.wide>h2,.sec.wide>div{grid-column:1/-1}
+@media (max-width:820px){
+  .sec,.sec.flip{grid-template-columns:1fr;padding:4.5rem 6vw 5rem}
+  .sec>h2,.sec.flip>h2{grid-column:1;grid-row:auto}
+  .sec>div,.sec.flip>div,.sec.wide>div{grid-column:1;grid-row:auto}
+  .sec>.art,.sec.flip>.art{grid-column:1;grid-row:auto;max-width:18rem;justify-self:start}
+  .sec>.deco{max-width:12rem}
+}
+/* pattern strips */
+.band{height:5.5rem;background:var(--snow) center/auto 68% repeat-x;color:var(--blood);display:grid;place-items:center;border-block:1px solid #c9ced3;overflow:hidden}
+.band.empty{background-image:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,currentColor 9%,transparent) 14px 15px);border-block:2px dashed currentColor}
+.band span{font-weight:600;font-size:.92rem;text-align:center;padding:0 1rem}
+.band small{font-weight:400;opacity:.8;margin-left:.5rem}
+
+.js .rv{opacity:0;transform:translateY(10px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .wi{display:inline-block;clip-path:inset(-.1em 100% -.25em 0);transition:clip-path 1s cubic-bezier(.7,0,.2,1)}
+.js .in>.wi{clip-path:inset(-.1em -3% -.25em 0)}
+.js .art .rev{clip-path:inset(100% 0 0 0);transition:clip-path 1.2s cubic-bezier(.7,0,.2,1)}
+.js .art .rev>*{transform:scale(1.1);transform-origin:bottom;transition:transform 1.6s cubic-bezier(.2,.6,.2,1)}
+.js .art.in .rev{clip-path:inset(0)}
+.js .art.in .rev>*{transform:none}
+.js .hero-art .rev{clip-path:none}
+.js .hero-art .rev>*{transform:none}
+
+@media (max-width:760px){.hero-art{right:0;height:min(52svh,92vw)}}
+
+/* back to top */
+.totop{position:fixed;right:max(1.2rem,env(safe-area-inset-right));bottom:max(1.2rem,env(safe-area-inset-bottom));z-index:20;
+  width:3.1rem;height:3.1rem;border:2px solid #fff;border-radius:50%;background:var(--wine);color:#fff;cursor:pointer;display:grid;place-items:center;
+  box-shadow:0 .4rem 1.2rem rgba(42,10,16,.35);opacity:0;visibility:hidden;transform:translateY(.8rem);
+  transition:opacity .35s,transform .35s,visibility 0s .35s,background .2s}
+.totop.show{opacity:1;visibility:visible;transform:none;transition:opacity .35s,transform .35s,visibility 0s,background .2s}
+.totop:hover{background:var(--hair)}
+.totop svg{width:1.4rem;height:1.4rem;transition:transform .25s}
+.totop:hover svg{transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){
+  .hero::after,.hero-art{animation:none}html{scroll-behavior:auto}
+  .js .rv,.js .wi,.js .art .rev,.js .art .rev>*,.totop{transition:none;opacity:1;transform:none;clip-path:none}
+  .totop:not(.show){opacity:0}
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Erissssss</a></li>
-                <li><a href="index.html">Menu</a></li>
-                <li class="logo">
-                    <a href="index.html">Company Logo Sigma</a>
-                </li>
-                <li><a href="location.html">Location</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header class="hero" id="top">
+  <nav aria-label="Sections">
+    <a href="#profile">Profile</a><a href="#house">The Boreas house</a><a href="#temper">Temper</a>
+    <a href="#story">Her story</a><a href="#blade">The sword</a><a href="#bonds">Bonds</a><a href="#notes">Small details</a>
+  </nav>
+  <div class="hero-body">
+    <h1><span class="first">Eris</span><span class="rest">Boreas Greyrat</span></h1>
+    <p class="lede">A noble's daughter with a wooden sword.</p>
+  </div>
+  <div class="jp" lang="ja">エリス・ボレアス・グレイラット</div>
+  <figure class="art hero-art" data-src="images/ErisMe.png" data-alt="Illustration of Eris Boreas Greyrat">
+    <div class="par"><div class="rev"><div class="ph"><span>Your Eris art<small>images/ErisMe.png</small></span></div><img alt="" hidden></div></div>
+  </figure>
+  <p class="ranks">Sword King. North Saint. A-rank adventurer.<br>A fanpage made with love by <a href="https://github.com/eldezaki" target="_blank" rel="noopener noreferrer">eldezaki</a></p>
+</header>
 
-    <main>
-        <!-- ERIS PICS -->
-        <section class="eris-gallery">
-            <img src="images/eris1.png" alt="Eris 1">
-            <img src="images/eris2.jpg" alt="Eris 2">
-            <img src="images/eris3.jpg" alt="Eris 3">
-            <img src="images/eris4.jpg" alt="Eris 4">
-        </section>
+<main>
 
-        <section class="feature-box closeouts">
-            <div>section:</div>
-            <div>a</div>
-            <div>b</div>
-            <div>c</div>
-        </section>
-    </main>
+<section class="sec" id="profile">
+  <h2>Profile</h2>
+  <div>
+    <p>Eris is one of the main heroines of <em>Mushoku Tensei: Jobless Reincarnation</em>, the light novel by Rifujin na Magonote (illustrated by Shirotaka). She first appears as the spoiled, violent granddaughter of a powerful lord, and grows into one of the strongest swordswomen in the story. This page is an unofficial fan archive. Details from later arcs are kept light, and the one real spoiler is folded away under <a href="#notes">Small details</a>.</p>
+    <h3>Fact sheet</h3>
+    <dl class="facts">
+      <dt>Full name</dt><dd>Eris Boreas Greyrat (エリス・ボレアス・グレイラット). She later drops “Boreas” and goes by Eris Greyrat.</dd>
+      <dt>Home</dt><dd>Fittoa Region, Kingdom of Asura, in the Boreas branch of the Greyrat family</dd>
+      <dt>Looks</dt><dd>Waist-length red hair, red eyes, and a hairband she keeps on in every outfit</dd>
+      <dt>Nickname</dt><dd>“Mad Dog”</dd>
+      <dt>Ranks</dt><dd>Sword King (Sword God Style), North Saint (North God Style), A-rank in the Adventurers’ Guild</dd>
+      <dt>Party</dt><dd>Dead End (former), alongside Rudeus Greyrat and Ruijerd Superdia</dd>
+      <dt>Voice</dt><dd>Ai Kakuma (Japanese), Lindsay Seidel (English)</dd>
+      <dt>Relation to Rudeus</dt><dd>Distant relative through the wider Greyrat family, and his first student</dd>
+    </dl>
+  </div>
+  <figure class="art" data-src="images/eris-profile.png" data-alt="Eris Boreas Greyrat portrait">
+    <div class="par"><div class="rev"><div class="ph"><span>Your Eris art<small>images/eris-profile.png</small></span></div><img alt="" hidden></div></div>
+  </figure>
+</section>
 
-    <footer id="kaki">
-        <h1>skibidi</h1>
-    </footer>
+<!-- <div class="band empty" data-pattern="images/pattern-1.png" aria-hidden="true"><span>Pattern strip, tiles sideways<small>images/pattern-1.png</small></span></div> -->
 
+<section class="sec dark flip" id="house">
+  <h2>The Boreas house</h2>
+  <div>
+    <p>Eris grows up inside the Boreas Greyrat family, a noble house of the Asura Kingdom with a reputation for martial pride. Her grandfather Sauros Boreas Greyrat sits at the top of it, and her father Philip Boreas Greyrat runs the household. Her mother is Hilda.</p>
+    <div class="tree" role="img" aria-label="Family tree: Sauros, then Philip and Hilda, then Eris">
+      <div class="node">Sauros Boreas Greyrat<small>Grandfather, head of the house</small></div>
+      <div class="link"></div>
+      <div class="row"><div class="node">Philip Boreas Greyrat<small>Father</small></div><div class="node">Hilda Greyrat<small>Mother</small></div></div>
+      <div class="link"></div>
+      <div class="node me">Eris Boreas Greyrat<small>Daughter</small></div>
+    </div>
+    <p>It is a house that expects obedience, and Eris has very little of it. The early chapters make the point by having her chase off tutor after tutor until Philip hires a ten-year-old from a branch family. That child is Rudeus, and his arrival is what sets the rest of her life in motion.</p>
+    <p class="note">“Boreas” is also the Greek name for the north wind. The series does not make anything of it, but it suits someone this cold-blooded in a fight and this hot-blooded everywhere else.</p>
+  </div>
+  <figure class="art deco" data-src="images/deco-house.png" data-alt="Decorative symbol">
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/deco-house.png</small></span></div><img alt="" hidden></div></div>
+  </figure>
+</section>
+
+<section class="sec" id="temper">
+  <h2>Temper</h2>
+  <div>
+    <p>Eris is the series’ clearest tsundere: loud, proud and quick to use her fists, with a protective streak she would sooner die than admit to. At the start she hits first and asks nothing. Fans gave her the “Mad Dog” name for the way she charges at monsters and at anyone who sneers at Rudeus.</p>
+    <h3>What drives her</h3>
+    <p>Pride is the engine. She hates losing, hates being talked down to, and hates being protected more than almost anything. Her loyalty is the fuel. She is merciless toward people who wish Rudeus harm, and she will train herself past exhaustion rather than be the one who needs saving.</p>
+    <h3>What changes</h3>
+    <p>Her growth is not about losing the fire. She learns to read, to count, to speak politely when it matters, and to listen. By the time she wears the Greyrat name alone, the temper is still there. It just has a direction.</p>
+  </div>
+  <figure class="art deco" data-src="images/deco-temper.png" data-alt="Decorative symbol">
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/deco-temper.png</small></span></div><img alt="" hidden></div></div>
+  </figure>
+</section>
+
+<section class="sec red flip" id="story">
+  <h2>Her story</h2>
+  <div>
+    <p>A short route through her arc, kept spoiler-light.</p>
+    <ol class="story" style="margin-top:1.6rem">
+      <li><strong>The unwilling student</strong>Philip hires Rudeus to tutor her. She rejects him by force, then slowly accepts reading, math and basic magic. Ghislaine Dedoldia is hired for the sword.</li>
+      <li><strong>The teleportation incident</strong>A teleportation event throws Eris and Rudeus far from home, onto the Demon Continent. She has to survive in a place no noble upbringing prepared her for.</li>
+      <li><strong>Dead End</strong>With Ruijerd of the Superd tribe, they form the adventurer party Dead End. Real monsters replace practice dummies and her swordsmanship hardens quickly.</li>
+      <li><strong>The burden</strong>On the long road back toward Fittoa she begins to feel like a weight on the person she wants to stand beside. That feeling drives the hardest decision of her early life.</li>
+      <li><strong>A new name</strong>At fifteen she sets aside the Boreas name and becomes Eris Greyrat, choosing the family she picked over the one she was born into.</li>
+      <li><strong>The sword king</strong>Her later training is what earns the Sword King and North Saint titles. Her story continues through Season 2 and the 2026 Season 3 of the anime.</li>
+    </ol>
+  </div>
+  <figure class="art" data-src="images/eris-story.png" data-alt="Eris Boreas Greyrat in motion">
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/eris-story.png</small></span></div><img alt="" hidden></div></div>
+  </figure>
+</section>
+
+<section class="sec dark" id="blade">
+  <h2>The sword</h2>
+  <div>
+    <p>Eris begins with a wooden sword and an instinct for violence. Ghislaine, a beastkin swordswoman, gives that instinct a form. Eris studies the Sword God Style and also earns rank in the North God Style, which suits a fighter who prefers to take the fight to the other side.</p>
+    <h3>Where she stands in Sword God Style</h3>
+    <ol class="ladder" aria-label="Sword God Style ranks, lowest to highest">
+      <li style="--n:0">Beginner</li><li style="--n:1">Intermediate</li><li style="--n:2">Advanced</li>
+      <li style="--n:3">Saint</li><li style="--n:4" class="hit">King: Eris</li><li style="--n:5">Emperor</li><li style="--n:6">God</li>
+    </ol>
+    <p class="cap">Her North God Style rank is Saint. In the Adventurers’ Guild she is rated A.</p>
+    <h3>How she fights</h3>
+    <p>She is not a patient duelist. Her fights are fast, forward and loud. The difference between early and later Eris is control: the same aggression, but with footwork and timing behind it. Magic was never her gift, and she compensates with the sword until the blade is enough on its own.</p>
+  </div>
+  <figure class="art" data-src="images/eris-blade.png" data-alt="Eris Boreas Greyrat with her sword">
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/eris-blade.png</small></span></div><img alt="" hidden></div></div>
+  </figure>
+</section>
+
+<section class="sec flip" id="bonds">
+  <h2>Bonds</h2>
+  <div>
+    <h3>Rudeus Greyrat</h3>
+    <p>Tutor, student, party-mate and the person her story is built around. They begin as a lonely noble and a hired tutor and end up as each other’s anchor. The relationship is the center of her character, and she shapes his arc as much as he shapes hers.</p>
+    <h3>Ghislaine Dedoldia</h3>
+    <p>Her sword teacher, and the first adult to treat her anger as something worth training rather than punishing.</p>
+    <h3>Ruijerd Superdia</h3>
+    <p>The Superd warrior who guards the pair across the Demon Continent. Under him, Eris learns how a veteran stays alive.</p>
+    <h3>Philip, Hilda and Sauros</h3>
+    <p>The family she leaves behind and keeps coming back to. They are the reason she starts out the way she does, and the reason her choice of the Greyrat name carries weight.</p>
+  </div>
+  <figure class="art deco" data-src="images/deco-bonds.png" data-alt="Decorative symbol">
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/deco-bonds.png</small></span></div><img alt="" hidden></div></div>
+  </figure>
+</section>
+
+<!-- <div class="band empty" data-pattern="images/pattern-2.png" aria-hidden="true"><span>Pattern strip, tiles sideways<small>images/pattern-2.png</small></span></div> -->
+
+<section class="sec" id="notes">
+  <h2>Small details</h2>
+  <div>
+    <details open><summary>The hairband</summary>
+      <p>Across her many outfits, including the cover art of Volume 22, Eris never takes the hairband off. It is her one constant.</p></details>
+    <details><summary>The wooden sword</summary>
+      <p>Her first weapon is a practice sword, and it appears in the character’s official imagery. It is a small reminder that she starts as a child and earns every rank.</p></details>
+    <details><summary>Spoiler: how the web novel ends for her</summary>
+      <p>In the web novel she dies of old age at 74, after collapsing during a training session. The anime and manga have not reached that point.</p></details>
+  </div>
+  <figure class="art deco" data-src="images/deco-notes.png" data-alt="Decorative symbol">
+    <div class="par"><div class="rev"><div class="ph"><span>Placeholder<small>images/deco-notes.png</small></span></div><img alt="" hidden></div></div>
+  </figure>
+</section>
+
+<!-- <div class="band empty" data-pattern="images/pattern-3.png" aria-hidden="true"><span>Pattern strip, tiles sideways<small>images/pattern-3.png</small></span></div> -->
+
+
+</main>
+
+<footer>
+  <p>Unofficial fan archive. Eris Boreas Greyrat and <em>Mushoku Tensei: Jobless Reincarnation</em> belong to Rifujin na Magonote, Shirotaka, Kadokawa and the anime production committee.</p>
+  <p>Facts compiled from the series and public fan references. Corrections are welcome.</p>
+</footer>
+
+<button class="totop" type="button" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5l3 12H9z"/><rect x="5.5" y="13.5" width="13" height="2.2" rx="1"/><rect x="10.9" y="15.7" width="2.2" height="6"/></svg>
+</button>
+<script>
+(function(){
+  var d=document, reduce=matchMedia("(prefers-reduced-motion: reduce)").matches, hasIO="IntersectionObserver" in window;
+
+  /* load your art if the file exists, otherwise keep the placeholder */
+  d.querySelectorAll("[data-src]").forEach(function(f){
+    var t=new Image();
+    t.onload=function(){var i=f.querySelector("img");i.src=f.dataset.src;i.alt=f.dataset.alt||"";i.hidden=false;var p=f.querySelector(".ph");if(p)p.remove();};
+    t.src=f.dataset.src;
+  });
+
+  d.querySelectorAll(".band").forEach(function(b){
+    var t=new Image();
+    t.onload=function(){b.style.backgroundImage="url("+b.dataset.pattern+")";b.classList.remove("empty");var l=b.querySelector("span");if(l)l.remove();};
+    t.src=b.dataset.pattern;
+  });
+
+  /* scroll reveals */
+  var seen=new Set(), counts=new Map(), items=[];
+  d.querySelectorAll(".sec>h2,.sec h3,.sec>div>*,.sec ol.story li,footer p").forEach(function(el){
+    if(seen.has(el)||el.matches("ol.story"))return; seen.add(el);
+    var tgt=el;
+    if(el.matches("h2,h3")){tgt=d.createElement("span");tgt.className="wi";while(el.firstChild)tgt.appendChild(el.firstChild);el.appendChild(tgt)}
+    else el.classList.add("rv");
+    var n=counts.get(el.parentNode)||0; counts.set(el.parentNode,n+1);
+    tgt.style.transitionDelay=Math.min(n,4)*70+"ms";
+    items.push(el);
+  });
+  d.querySelectorAll(".sec>.art").forEach(function(a){items.push(a)});
+  if(hasIO&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15,rootMargin:"0px 0px -8% 0px"});
+    items.forEach(function(el){io.observe(el)});
+  }else items.forEach(function(el){el.classList.add("in")});
+
+  /* back to top */
+  var btn=d.querySelector(".totop"), hero=d.querySelector(".hero");
+  if(hasIO){new IntersectionObserver(function(es){btn.classList.toggle("show",!es[0].isIntersecting)},{threshold:0}).observe(hero)}
+  btn.addEventListener("click",function(){window.scrollTo({top:0,behavior:reduce?"auto":"smooth"})});
+
+  /* gentle parallax on the art */
+  if(reduce)return;
+  var hp=d.querySelector(".hero-art .par"), ap=[].slice.call(d.querySelectorAll(".sec>.art .par")), bs=[].slice.call(d.querySelectorAll(".band")), tick=false;
+  function frame(){
+    tick=false; var y=scrollY,h=innerHeight;
+    bs.forEach(function(b){b.style.backgroundPositionX=(y*.12).toFixed(1)+"px"});
+    ap.forEach(function(p){var r=p.parentNode.getBoundingClientRect(),c=(r.top+r.height/2-h/2)/h;if(Math.abs(c)<1.5)p.style.transform="translateY("+(c*-36).toFixed(1)+"px)"});
+  }
+  function req(){if(!tick){tick=true;requestAnimationFrame(frame)}}
+  addEventListener("scroll",req,{passive:true});addEventListener("resize",req);frame();
+})();
+</script>
 </body>
 </html>
